@@ -2,9 +2,7 @@
  my-curses
 ===========
 
-Program to illustrate a chat-like ncurses interface. It uses pthread conditionals to
-simulate sofware interrupt when the message is "received" by the Whisper session and
-communications service.
+Program to illustrate a chat-like ncurses interface. It uses pthread conditionals to simulate sofware interrupts when the message is "received" by the Whisper session and communications service.
 
 Instructions
 ------------
