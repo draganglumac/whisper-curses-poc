@@ -2,7 +2,9 @@
  my-curses
 ===========
 
-Program to illustrate a chat-like ncurses interface. It uses pthread conditionals to simulate sofware interrupt when the message is "received" by the Whisper session and communications service.
+Program to illustrate a chat-like ncurses interface. It uses pthread
+conditionals to simulate sofware interrupt when the message is "received" 
+by the Whisper communications service for a chat session.
 
 Instructions
 ------------
@@ -17,17 +19,21 @@ The executable is placed inside the build folder.
 
     ./build/my-curses
 
-* Type a message into the prompt and hit Enter. The message will appear in the output section.
+* Type a message into the prompt and hit Enter. The message will appear
+  in the output section.
 
 * Type
 
     r/message 
 
-  and hit Enter to simulate a message from a remote peer (printed in different colour).
-  Obviously these mesage would be sent by the peer, but r/ flag is so that we can illustrate look and feel ideas without network noise.
+  and hit Enter to simulate a message from a remote peer (printed in 
+  different colour).
+
+  Obviously these mesages would be sent by the peer, but r/ flag is here so 
+  that we can illustrate look and feel ideas without the network "noise".
 
 * Type
  
     :q
 
-  and hig Enter in the prompt to quit the program.
+  and hit Enter in the prompt to quit the program.
