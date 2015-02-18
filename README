@@ -24,6 +24,7 @@ The executable is placed inside the build folder.
     r/message 
 
   and hit Enter to simulate a message from a remote peer (printed in different colour).
+  Obviously these mesage would be sent by the peer, but r/ flag is so that we can illustrate look and feel ideas without network noise.
 
 * Type
  
