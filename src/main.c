@@ -18,37 +18,23 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <pthread.h>
 
 #include "ui.h"
-#include "app.h"
 
 int main(int argc, char **argv) {
 	ui_t *ui = create_ui();
-	
-	context_t *context = malloc(sizeof(context_t));
-	context->ui = ui;
-	context->msg = NULL;
-	pthread_t read_thread;
-	pthread_create(&read_thread, 0, read_loop, (void *) context);
-
-	while (TRUE) {
-		pthread_mutex_lock(&output_mutex);	
-		wait_for_message();
-		ui_t *cui = context->ui;
-		char *msg = context->msg;
+	while (TRUE) {	
+		char *msg = get_message(ui);
 		if (strcmp(msg, ":q") == 0) {
 			break;
 		}
 		else if (strncmp(msg, "r/", 2) == 0) {
-			display_remote_message(cui, msg);
+			display_remote_message(ui, msg);
 		}
 		else {
-			display_local_message(cui, msg);
+			display_local_message(ui, msg);
 		}
-		pthread_mutex_unlock(&output_mutex);
 	}
-
 	destroy_ui(ui);
 	return 0;
 }

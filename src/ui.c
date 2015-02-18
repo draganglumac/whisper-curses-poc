@@ -74,6 +74,7 @@ void destroy_ui(ui_t *ui) {
 }
 char *get_message(ui_t *ui) {
 	char *msg = malloc(1024);
+	wmove(ui->prompt, 1, 4);
 	wgetstr(ui->prompt, msg);
 	show_prompt(ui);
 	return msg;
@@ -89,10 +90,6 @@ void update_next_line(ui_t *ui) {
 		ui->next_line++;
 	}
 }
-void move_cursor_to_input(ui_t *ui) {
-	wmove(ui->prompt, 1, 4);
-	wrefresh(ui->prompt);
-}
 void display_message(ui_t *ui, char *msg, int col_flag) {
 	wattron(ui->screen, COLOR_PAIR(col_flag));
 	mvwprintw(ui->screen, ui->next_line, 1, "%s\n", msg);
@@ -100,7 +97,6 @@ void display_message(ui_t *ui, char *msg, int col_flag) {
 	update_next_line(ui);
 	box(ui->screen, 0, 0);
 	wrefresh(ui->screen);
-	move_cursor_to_input(ui);
 }
 void display_local_message(ui_t *ui, char *msg) {
 	display_message(ui, msg, COL_LOCAL);
