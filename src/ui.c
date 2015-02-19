@@ -87,7 +87,8 @@ void update_next_line(ui_t *ui) {
 		ui->next_line--;
 	}
 	else {
-		ui->next_line++;
+		getyx(ui->screen, lines, cols);
+		ui->next_line = lines;
 	}
 }
 void display_message(ui_t *ui, char *msg, int col_flag) {
