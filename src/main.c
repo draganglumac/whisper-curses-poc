@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
 			break;
 		}
 	}
-
+	
 	destroy_ui(ui);
 	return 0;
 }
