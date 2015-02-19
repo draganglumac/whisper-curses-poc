@@ -92,12 +92,16 @@ void update_next_line(ui_t *ui) {
 	}
 }
 void display_message(ui_t *ui, char *msg, int col_flag) {
+	int row, col;
+	getyx(ui->prompt, row, col);
 	wattron(ui->screen, COLOR_PAIR(col_flag));
 	mvwprintw(ui->screen, ui->next_line, 1, "%s\n", msg);
 	wattroff(ui->screen, COLOR_PAIR(col_flag));
 	update_next_line(ui);
 	box(ui->screen, 0, 0);
 	wrefresh(ui->screen);
+	wmove(ui->prompt, row, col);
+	wrefresh(ui->prompt);
 }
 void display_local_message(ui_t *ui, char *msg) {
 	display_message(ui, msg, COL_LOCAL);
