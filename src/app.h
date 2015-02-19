@@ -26,13 +26,7 @@ typedef struct {
 	char *msg;
 } context_t;
 
-pthread_mutex_t output_mutex;
-pthread_cond_t output_cond;
-
-void wait_for_message();
-void signal_message();
-void send_message(context_t *context);
 void *read_loop(void *data);
-
+int output_next_message_in_context(context_t *context);
 
 #endif // __APP_H__
