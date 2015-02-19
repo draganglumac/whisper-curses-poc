@@ -24,6 +24,10 @@
 static pthread_mutex_t output_mutex;
 static pthread_cond_t output_cond;
 
+void init_app() {
+	pthread_mutex_init(&output_mutex, NULL);
+	pthread_cond_init(&output_cond, NULL);
+}
 void signal_message() {
 	int retval;
 	if ((retval = pthread_cond_signal(&output_cond)) != 0) {

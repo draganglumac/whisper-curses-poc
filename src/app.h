@@ -26,6 +26,7 @@ typedef struct {
 	char *msg;
 } context_t;
 
+void init_app();
 void *read_loop(void *data);
 int output_next_message_in_context(context_t *context);
 

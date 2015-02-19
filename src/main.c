@@ -21,6 +21,7 @@
 #include "app.h"
 
 int main(int argc, char **argv) {
+	init_app();
 	ui_t *ui = create_ui();
 
 	context_t *context = malloc(sizeof(context_t));
